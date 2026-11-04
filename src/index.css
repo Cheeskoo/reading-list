@@ -1,0 +1,176 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: "Commissioner", sans-serif;
+}
+
+.link{
+  text-decoration: none;
+  color: #1b1b1b;
+}
+.btn{
+  background-color: transparent;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: #FFFFFF;
+}
+.navbar__left{
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+.navbar__right{
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+.navbar__icon{
+  color: #2447b8;
+  font-size: 1.4rem;
+}
+.navbar__title{
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 1.2rem;
+}
+.navbar__add-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  background-color: #2447b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.body{
+  background-color: #f1f1f1;
+}
+.library{
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;  
+}
+.library-top{
+  display: flex;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.library__title{
+  font-size: 1.5rem;
+}
+.library__quantity{
+  color: #5B6578;
+  font-size: 0.8rem;
+}
+.library__navigation{
+  display: flex;
+  gap: 0.2em;
+  margin-bottom: 0.5em;
+}
+.library__btn{
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  border: 1px solid #c9cfda
+}
+.books__section{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1em;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  padding: 0.6em 1.2em;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+}
+.card__status-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card__status{
+  padding: 0.8em 1em;
+  font-size: 0.6rem;
+  border-radius: 15px;
+}
+.card__status--want_to_read{
+  background-color: #e8eaef;
+  color: #3f4858;
+}
+.card__status--reading{
+  background-color: #dce6ff;
+  color: #1b3a8c;
+}
+.card__status--finished{
+  background-color: #d5f0e0;
+  color: #14532d;
+}
+.card__title-wrapper{
+  display: flex; 
+  flex-direction: column;
+  gap: 0.8em;
+}
+.card__title{
+  font-size: 1rem;
+}
+.card__author{
+  color: #5B6578;
+  font-size: 0.8rem;
+}
+.card__description-wrapper{
+  margin-top: 0.5em;
+}
+.card__description{
+  font-size: 0.8rem;
+}
+.card__footer{
+  margin-top: auto;
+}
+.card__config{
+  display: flex;
+  margin-top: 0.5em;
+  gap: 0.5em;
+}
+.card__edit,
+.card__delete{
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0.8em;
+}
+.card__edit{
+  border: 1px solid #c9cfda;
+  color: #172033;
+}
+.edit__icon{
+  color: #172033;
+}
+.card__delete{
+  border: 1px solid #b42318;
+  color: #b42318;
+}
+.delete__icon{
+  color: #b42318;
+}
+.stars{
+  display: "flex";
+  gap: 2
+}
