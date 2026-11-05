@@ -1,20 +1,37 @@
+import { useState } from "react"
 import { CiEdit } from "react-icons/ci"
 import { MdOutlineDelete } from "react-icons/md"
+import { Link } from "react-router"
 import Stars from "./Stars"
-import type { CardsType } from "../utils/types"
+import type { BookType } from "../utils/types"
+import { statusLabel } from "../utils/bookStatus"
+import { useBooks } from "../utils/booksContext"
+import deleteBook from "../utils/deleteBook"
 
-export default function Cards({book}: {book: CardsType}){
-    const cleanStatus: string = book.status === "want_to_read" ? book.status.replaceAll('_', ' '): book.status
-    const newStatus: string = cleanStatus.slice(0,1).toUpperCase() + cleanStatus.slice(1)
+export default function Cards({book}: {book: BookType}){
+    const { refetch } = useBooks()
+    const [deleting, setDeleting] = useState(false)
+
+    async function handleDelete(){
+        if(!window.confirm(`Delete "${book.title}"?`)) return
+        setDeleting(true)
+        try{
+            await deleteBook(book.id)
+            await refetch()
+        }catch(error){
+            alert(error instanceof Error ? error.message : 'The book could not be deleted')
+            setDeleting(false)
+        }
+    }
 
     return(
        <article className="card">
         <div className="card__status-wrapper">
-            <span 
+            <span
                 className={`card__status card__status--${book.status}`}>
-                {newStatus}
+                {statusLabel(book.status)}
             </span>
-            {book.rating != null && 
+            {book.rating != null &&
                 <Stars rating={book.rating} />
             }
         </div>
@@ -22,7 +39,7 @@ export default function Cards({book}: {book: CardsType}){
             <h3 className="card__title">{book.title}</h3>
             <p className="card__author">{book.author}</p>
         </div>
-        {book.notes != null && 
+        {book.notes != null &&
             <div className="card__description-wrapper">
                 <p className="card__description">
                     {book.notes}
@@ -32,13 +49,17 @@ export default function Cards({book}: {book: CardsType}){
         <div className="card__footer">
             <hr className="card__separator"/>
             <div className="card__config">
-                <button type="button" className="btn card__edit">
-                    <CiEdit className="edit__icon"/> 
+                <Link to={`/books/${book.id}`} className="link btn card__edit">
+                    <CiEdit className="edit__icon"/>
                     Edit
-                </button>
-                <button type="button" className="btn card__delete">
+                </Link>
+                <button
+                    type="button"
+                    onClick={handleDelete}
+                    disabled={deleting}
+                    className="btn card__delete">
                     <MdOutlineDelete className="delete__icon"/>
-                    Delete
+                    {deleting ? 'Deleting...' : 'Delete'}
                 </button>
             </div>
         </div>

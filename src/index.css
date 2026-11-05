@@ -6,7 +6,6 @@
 body{
   font-family: "Commissioner", sans-serif;
 }
-
 .link{
   text-decoration: none;
   color: #1b1b1b;
@@ -17,7 +16,6 @@ body{
   padding: 0.5em 1em;
   cursor: pointer;
 }
-
 .navbar{
   display: flex;
   justify-content: space-between;
@@ -86,7 +84,13 @@ body{
 .library__btn{
   background-color: #FFFFFF;
   border-radius: 15px;
-  border: 1px solid #c9cfda
+  border: 1px solid #c9cfda;
+  padding: 0.4em 0.8em;
+}
+.library__btn--active{
+  background-color: #172033;
+  border-color: #172033;
+  color: #FFFFFF;
 }
 .books__section{
   display: grid;
@@ -154,7 +158,7 @@ body{
   display: flex;
   align-items: center;
   border-radius: 8px;
-  padding: 0.8em;
+  padding: 0.4em;
 }
 .card__edit{
   border: 1px solid #c9cfda;
@@ -173,4 +177,79 @@ body{
 .stars{
   display: "flex";
   gap: 2
+}
+.addBook{
+  padding: 1em;
+}
+.addBook__header{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+.addBook__back-btn{
+  color: #2447b8;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5em
+}
+.addBook__title{
+  margin-left: 0.6em;
+}
+.addBook__form{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5em;
+  gap: 0.2em;
+}
+.addBook__label{
+  font-weight: 500;
+  font-size: 0.9em;
+  margin-left: 0.3em;
+}
+.addBook__text-input{
+  padding: 0.4em;
+  border: 1px solid #5B6578;
+  border-radius: 5px;
+}
+.addBook__status-rating{
+  display: flex;
+  gap: 0.5em;
+}
+.addBook__rating,
+.addBook__status{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.addBook__select{
+  padding: 0.4em;
+  border: 1px solid #5B6578;
+  border-radius: 5px;
+}
+.addBook__text-area{
+  resize: none;
+  border: 1px solid #5B6578;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  height: 200px;
+}
+.addBook__footer{
+  margin-top: 1em;
+  display: flex;
+  gap: 0.5em;
+}
+.addBook__save-btn{
+  background-color: #2447b8;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+.addBook__cancel-btn{
+  border: 1px solid #5B6578;
+  border-radius: 8px;
+  font-weight: 600;
 }

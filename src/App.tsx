@@ -1,13 +1,22 @@
-import Header from "./pages/Header";
-import Home from "./pages/Home"
-import {useState} from "react"
+import {BrowserRouter, Routes, Route} from 'react-router'
+import RootLayout from "./pages/RootLayout"
+import LibraryPage from "./pages/LibraryPage"
+import AddBookPage from "./pages/AddBookPage"
+import BookPage from "./pages/BookPage"
+import NotFoundPage from "./pages/NotFoundPage"
+
 
 export default function App(){
-  const [addBtn, setAddBtn] = useState<boolean>(true)
   return(
-    <>
-      <Header addBtn={addBtn} setAddBtn={setAddBtn} />
-      <Home />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<LibraryPage />} />
+          <Route path="books/new" element={<AddBookPage />} />
+          <Route path="books/:id" element={<BookPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
