@@ -35,7 +35,7 @@ Construida con **React 19**, **TypeScript** y **Vite**, y conectada a una API RE
 1. Clonar el repositorio:
 
    ```bash
-   git clone <url-del-repositorio>
+   git clone <(https://github.com/Cheeskoo/reading-list.git)>
    cd reading-list
    ```
 
